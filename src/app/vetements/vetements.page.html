@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title style="text-align: center;">SOFTER STYLE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="full" color="danger">
+    <ion-label  style="text-align: center;"> TOTAL ARTICLE : {{vetements.length}}</ion-label>
+    <!-- <ion-label  >{{vetements.length}}</ion-label> -->
+  </ion-item>
+  <ion-list >
+    <ion-item *ngFor="let vet of vetements" (click)="goTo(vet.id)">
+      <ion-avatar slot="start">
+        <ion-img  [src]="vet.lien"></ion-img>
+      </ion-avatar>
+    <ion-label>
+        {{vet.nom}}
+    </ion-label >
+    <ion-label *ngIf="vet.complement.statut" color="danger">
+      En solde
+  </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-button color="danger" shape="round" [routerLink]="['add']">Ajouter</ion-button>
+
+

@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/vetements"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Update</ion-title>
+  </ion-toolbar>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Veuillez remplir le formulaire</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+    <form  [formGroup]="ionicForm" (ngSubmit)="updateVetement()" novalidate>
+      <ion-item lines="full" >
+        <ion-label position="floating">Nom: </ion-label>
+        <ion-input formControlName="nom" type="text"></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nom.errors?.required">
+        Le nom est requis.
+      </span>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Prix</ion-label>
+        <ion-input maxlength="10" formControlName="prix" type="text" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.prix.errors?.required">
+        prix requis
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.prix.errors?.pattern">
+        Pas de caractère
+      </span>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Taille</ion-label>
+        <ion-input maxlength="10" formControlName="taille" type="text" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.taille.errors?.required">
+        taille requise
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.taille.errors?.pattern">
+        Pas de caractère
+      </span>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Lien</ion-label>
+          <ion-input formControlName="lien" type="text"></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lien.errors?.required">
+          Le lien est requis.
+        </span>
+
+
+          <ion-item lines="full">
+            <ion-label position="floating">Couleur</ion-label>
+            <ion-input formControlName="couleur" type="text"></ion-input>
+          </ion-item>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.couleur.errors?.required">
+            Le couleur est requise.
+          </span>
+
+      <ion-item >
+        <ion-label >Sexe</ion-label>
+        <ion-select formControlName="sexe">
+          <ion-select-option>Femme</ion-select-option>
+          <ion-select-option>Homme</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.sexe.errors?.required">
+        Le champ est requis
+      </span>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="danger" expand="block">Modifier</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>

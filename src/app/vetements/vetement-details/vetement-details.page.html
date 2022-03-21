@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/vetements"></ion-back-button>
+      <ion-button ></ion-button>
+</ion-buttons>
+<ion-title style="text-align: center;">Article {{id}}</ion-title>
+<ion-buttons slot="primary" >
+  <ion-button (click)="remove(id)">
+    <ion-icon slot="icon-only" name="exit"></ion-icon>
+  </ion-button>
+</ion-buttons>
+    <!-- <div float="right">
+      <button (click)="remove(id)" color="primary" >
+        <ion-icon name="remove" ></ion-icon>
+      </button>
+    </div> -->
+</ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+  <ion-grid >
+    <ion-row >
+      <ion-col size="6" offset="3">
+        <ion-img src="qwerty" [src]="lien"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-item lines="full" >
+    <ion-label > ARTICLE :</ion-label>
+    <ion-label >{{id}}</ion-label>
+  </ion-item>
+  <ion-item lines="full" >
+    <ion-label > NOM :</ion-label>
+    <ion-label >{{nom}}</ion-label>
+  </ion-item>
+  <ion-item lines="full" >
+    <ion-label >PRIX :</ion-label>
+    <ion-label >{{prix}}</ion-label>
+  </ion-item>
+  <ion-item lines="full" >
+    <ion-label >TAILLE :</ion-label>
+    <ion-label >{{taille}}</ion-label>
+  </ion-item>
+  <ion-item lines="full" >
+    <ion-label >LIEN :</ion-label>
+    <ion-label >{{lien}}</ion-label>
+  </ion-item>
+  <ion-item lines="full" >
+    <ion-label >STATUT :</ion-label>
+    <ion-label *ngIf="statut" >En solde</ion-label>
+    <ion-label *ngIf="!statut">Pas en solde</ion-label>
+  </ion-item>
+  <ion-item lines="full" >
+    <ion-label >CATHEGORIE :</ion-label>
+    <ion-label >{{categorie}}</ion-label>
+  </ion-item>
+  <ion-item lines="full" >
+    <ion-label >COULEUR :</ion-label>
+    <ion-label >{{couleur}}</ion-label>
+  </ion-item>
+</ion-content>
+<ion-button color="danger" shape="round" (click)="goTo(id)">Modifier</ion-button>
